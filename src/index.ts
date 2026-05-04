@@ -8,7 +8,7 @@ import { redisClient } from './redis';
 
 const app = express();
 
-const corsOrigin = process.env.CLIENT_URL || '*';
+const corsOrigin = process.env.CLIENT_URL || 'http://localhost:3000';
 
 app.use(cors({ origin: corsOrigin }));
 app.use(express.json());
@@ -47,7 +47,7 @@ const startServer = async () => {
     handleSocketConnection(io, socket);
   });
 
-  const PORT = process.env.PORT || 3001;
+  const PORT = process.env.PORT || 5000;
 
   httpServer.listen(PORT, () => {
     console.log(`🚀 Memory Hack server running on port ${PORT}`);
