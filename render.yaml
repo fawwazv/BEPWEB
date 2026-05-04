@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: memory-hack-server
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: CLIENT_URL
+        # Ganti dengan URL frontend production Anda nantinya (misal: https://memory-hack.vercel.app)
+        value: "http://localhost:3000"
+      - key: REDIS_URL
+        # Opsional: Jika menggunakan Redis, masukkan koneksi string Redis (contoh: dari Aiven/Render Redis)
+        value: ""
+      - key: NODE_VERSION
+        value: "20.x"
